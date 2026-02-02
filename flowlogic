@@ -1,0 +1,33 @@
+🔄 Flow Logic (Step-by-Step)
+
+1. Trigger
+- The flow starts when a new email arrives (V3)
+
+2. Data Initialization
+- Initialize an array variable to store extracted items
+
+3. Item Collection
+- Loop through email content or attachment data  
+- Append parsed values into an array 
+  -  Yield an one-item, comma-separated array, ["aaa,\r\nbbb,\r\nccc,\r\naaa"]
+  
+4. Data Normalization : Our final goal is to split it to ["aaa","bbb","ccc"]
+- Convert the array into raw text  
+- Split raw text into a structured array using ","  
+- Filter out empty or invalid entries using "trim()" function
+  - trim() is used to remove white space or line breaks : \r\n
+
+5. Deduplication
+- Remove duplicate values to ensure clean and concise output, using union() function
+
+6. Combine items from an array back into a single string, separated by a specified delimiter. Final data visualization purpose. 
+- Join()
+- This is because in the last step Adaptive Card, we can only put pure text into JSON text.
+
+
+7. Presentation Formatting
+- Join cleaned items into Adaptive Card–ready JSON text  
+- Convert HTML content into plain text for consistent rendering
+
+8. Output
+- Post an Adaptive Card message into a Microsoft Teams chat or channel
